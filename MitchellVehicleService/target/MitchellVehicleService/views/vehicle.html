@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Vehicle CRUD</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="view/app.js"></script>
+<style>
+a {
+	cursor: pointer;
+	background-color: lightblue;
+}
+</style>
+</head>
+<body ng-app="myApp">
+<div ng-controller="VehicleCtrl">
+			<table>
+				<tr>
+					<td width="100">ID:</td>
+					<td><input type="text" id="id" ng-model="vehicle.id" /></td>
+				</tr>
+				<tr>
+					<td width="100">Model:</td>
+					<td><input type="text" id="name" ng-model="vehicle.model" /></td>
+				</tr>
+				<tr>
+					<td width="100">Make:</td>
+					<td><input type="text" id="email" ng-model="vehicle.make" /></td>
+				</tr>
+				<tr>
+					<td width="100">Year:</td>
+					<td><input type="text" id="email" ng-model="vehicle.year" /></td>
+				</tr>
+			</table>
+			<br /> <br /> 
+			<a ng-click="getVehicleInfo(vehicle.id)">Vehicle Info</a> 
+			<a ng-click="updateVehicle(vehicle.id,vehicle.model,vehicle.make,vehicle.year)">Update Vehicle Info</a> 
+			<a ng-click="addVehicle(vehicle.id,vehicle.model,vehicle.make,vehicle.year)">Add Vehicle</a> 
+			<a ng-click="deleteVehicle(vehicle.id)">Delete Vehicle</a>
+
+		<br /> <br />
+		<p style="color: green">{{message}}</p>
+		<p style="color: red">{{errorMessage}}</p>
+
+		<br />
+		<br /> 
+		<a ng-click="getAllVehicles()">Get all Vehicles</a><br /> 
+		<br /> <br />
+		<div ng-repeat="vehicle in vehicles">
+			{{vehicle.make}} {{vehicle.model}} {{vehicle.year}}
+		</div>
+	</div>
+</body>
+</html>

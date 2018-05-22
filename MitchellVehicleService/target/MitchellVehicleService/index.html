@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Vehicle CRUD</title>
+<style>
+a {
+	cursor: pointer;
+	background-color: lightblue;
+}
+</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body ng-app="myApp">
+<div ng-controller="VehicleCtrl">
+    <div class="row" style="margin-left: 4%; margin-right: 4%; width:90%;">
+        <h4>List of Vehicles:</h4> <p style="color: green">{{message}}</p> <p style="color: red">{{errorMessage}}</p>
+        <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 panel panel-default boxborder" ng-repeat="vehicle in vehicles">
+            <h5 class="panel-heading" style="padding: 15px 15px;">
+                <span class="pull-right">
+                    <a href ng-click="updateVehicle(vehicle.id,vehicle.model,vehicle.make,vehicle.year)" alt="Edit">Edit</a> | <a href ng-click="deleteVehicle(vehicle.id)" alt="Delete">Delete</a>
+                </span>
+            </h5>
+            <div class="panel-body">
+                <table class="table table-hover table-responsive table-striped">
+                    <tr>
+                        <td width="100">ID:</td>
+                        <td><input type="text" id="id" ng-model="vehicle.id" /></td>
+                    </tr>
+                    <tr>
+                        <td width="100">Model:</td>
+                        <td><input type="text" id="name" ng-model="vehicle.model" /></td>
+                    </tr>
+                    <tr>
+                        <td width="100">Make:</td>
+                        <td><input type="text" id="email" ng-model="vehicle.make" /></td>
+                    </tr>
+                    <tr>
+                        <td width="100">Year:</td>
+                        <td><input type="text" id="email" ng-model="vehicle.year" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-left: 4%; margin-right: 4%; width:90%;">    
+        <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 panel panel-default boxborder">
+            <h5 class="panel-heading" style="padding: 15px 15px;"><span class="pull-right"><a href ng-click="addVehicle(add.vehicle.id,add.vehicle.model,add.vehicle.make,add.vehicle.year)">Add</a></span></h5>
+            <div class="panel-body">
+                <table class="table-responsive">
+                    <tr>
+                        <td width="100">ID:</td>
+                        <td><input type="text" id="id" ng-model="add.vehicle.id" /></td>
+                    </tr>
+                    <tr>
+                        <td width="100">Model:</td>
+                        <td><input type="text" id="name" ng-model="add.vehicle.model" /></td>
+                    </tr>
+                    <tr>
+                        <td width="100">Make:</td>
+                        <td><input type="text" id="email" ng-model="add.vehicle.make" /></td>
+                    </tr>
+                    <tr>
+                        <td width="100">Year:</td>
+                        <td><input type="text" id="email" ng-model="add.vehicle.year" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="static/js/app.js"></script>
+<script src="static/js/controller/vehicle_controller.js"></script>
+<script src="static/js/service/vehicle_service.js"></script>
+</body>
+</html>
